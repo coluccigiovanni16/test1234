@@ -1,23 +1,35 @@
-title: Giovanni Colucci
-description: University of Edinburgh
-url: https://coluccigiovanni16.github.io
-author: Giovanni Colucci
-permalink: pretty
+title: ""
+description: ""
+baseurl: ""
+url: ""
 
 exclude:
-  - Gemfile
+  - demo/
+  - cvless.gemspec
   - LICENSE
   - README.md
-  - vendor/
-  - cv.aux
-  - cv.fdb_latexmk
-  - cv.fls
-  - cv.log
-  - cv.out
-  - cv.synctex.gz
+  - screenshot.png
 
 plugins:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate-v2
   - jekyll-seo-tag
   - jekyll-sitemap
 
+sass:
+  style: compressed
+  sourcemap: never
 
+feed:
+  path: atom.xml
+
+autopages:
+  enabled: false
+
+pagination:
+  enabled: true
+  per_page: 1
+  sort_reverse: true
+  permalink: /:num/
+  title: ":title &middot; Page :num"
