@@ -1,0 +1,31 @@
+.background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.cover-container {
+    max-width: 42em;
+}
+
+.nav .nav-link {
+    border-bottom: .25rem solid transparent;
+
+    &:hover,
+    &:focus {
+        border-bottom-color: var(--bs-nav-link-hover-color) !important;
+    }
+
+    &+.nav-link {
+        margin-left: 1rem;
+    }
+
+    &.active {
+        color: var(--bs-body-color);
+        border-bottom-color: var(--bs-body-color);
+    }
+}

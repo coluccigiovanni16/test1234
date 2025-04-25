@@ -1,0 +1,22 @@
+title: Michele Piazzai
+description: University of Edinburgh
+url: https://piazzai.github.io
+author: Michele Piazzai
+permalink: pretty
+
+exclude:
+  - Gemfile
+  - LICENSE
+  - README.md
+  - vendor/
+  - cv.aux
+  - cv.fdb_latexmk
+  - cv.fls
+  - cv.log
+  - cv.out
+  - cv.synctex.gz
+  - cv.tex
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
