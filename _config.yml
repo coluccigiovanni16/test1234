@@ -13,7 +13,6 @@ exclude:
 plugins:
   - jekyll-feed
   - jekyll-gist
-  - jekyll-paginate-v2
   - jekyll-seo-tag
   - jekyll-sitemap
 
