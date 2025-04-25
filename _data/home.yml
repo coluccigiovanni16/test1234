@@ -1,19 +1,201 @@
-icons:
-  - title: Google Scholar
-    id: google-scholar
-    url: https://scholar.google.com/citations?user=i_sx6QMAAAAJ
-  - title: ORCID
-    id: orcid
-    url: https://orcid.org/0000-0001-9676-7422
-  - title: Scopus
-    id: scopus
-    url: https://www.scopus.com/authid/detail.uri?authorId=56123810600
-  - title: Web of Science
-    id: clarivate
-    url: https://www.webofscience.com/wos/author/record/ABH-6674-2020
-  - title: GitHub
-    id: github
-    url: https://github.com/Colucci
-  - title: Lichess
-    id: lichess
-    url: https://lichess.org/@/Colucci
+# Personal info
+name: Giovanni Colucci
+title: Senior Cloud Engineer | Salesforce Industries Expert
+email: coluccigiovanni16@gmail.com
+website: https://www.linkedin.com/in/coluccigiovanni16
+
+# Dark Mode (true/false/never)
+darkmode: false
+
+# Social links
+linkedin_username: coluccigiovanni16
+
+# Additional icon links
+additional_links:
+  - title: AWS Certified
+    icon: fab fa-aws
+    url: https://aws.amazon.com/certification/
+
+# About Section
+about_title: About Me
+about_profile_image: images/profile.jpg
+about_content: |
+  Results-driven Senior Consultant with over 5 years of expertise in Digital Cloud Engineering, specializing in Salesforce and Vlocity solutions for the Communications, Media, and Technology (CMT) industry. 
+
+  Proven track record of designing and implementing scalable solutions, driving digital transformation, and exceeding client expectations. Adept in CPQ, EPC, Data Raptors, Omniscripts, LWC, APEX, and Vlocity technologies. Strong collaborator known for Agile project leadership.
+
+  My key skills include:
+    - Salesforce & Vlocity Development
+    - Digital Transformation
+    - Cloud Engineering
+    - Agile Project Management
+    - Integration Solutions
+
+content:
+  - title: Experience
+    layout: list
+    content:
+      - layout: top-left
+        title: Deloitte Digital
+        sub_title: Senior Consultant - Digital Cloud Engineer
+        caption: June 2023 - Present
+        link: https://www.deloittedigital.com
+        quote: >
+          Leading digital cloud engineering and Salesforce implementations for enterprise clients
+        description: |
+          - Lead the conceptualization and development of scalable solutions, meeting critical business needs
+          - Champion the implementation of CPQ, EPC, Data Raptors, and Flex Cards
+          - Design and deploy efficient Omniscripts and APEX solutions, enhancing system performance
+          - Facilitate integration using JSON, GIT, Jenkins, and Azure DevOps
+          - Spearheaded Agile methodologies, ensuring on-time, high-quality project delivery
+
+          **Key Projects:**
+          - NEOM Middle East (August 2023 - Present)
+          - MultiChoice South Africa (January 2022 - August 2023)
+
+      - layout: left
+        title: Deloitte Digital
+        sub_title: Consultant - Digital Cloud Engineer
+        caption: June 2021 - May 2023
+        link: https://www.deloittedigital.com
+        description: |
+          - Served as Technical Team Member for enterprise clients
+          - Performed analysis and solution research
+          - Developed solutions using Salesforce and Vlocity technologies
+
+          **Key Projects:**
+          - MultiChoice South Africa (January 2022 - May 2023)
+            - Implemented Omnistudio, Vlocity Digital Catalog, and custom LWC components
+            - Developed with APEX, JSON, and integrated with DevOps tools
+
+          - Vumatel South Africa (August 2021 - January 2022)
+            - Technical implementation of Vlocity and Salesforce solutions
+
+      - layout: left
+        title: Deloitte Digital
+        sub_title: Analyst - Digital Cloud Developer
+        caption: March 2020 - May 2021
+        link: https://www.deloittedigital.com
+        description: |
+          - Implemented Salesforce and Vlocity solutions for global clients
+
+          **Key Projects:**
+          - MultiChoice South Africa (December 2020 - August 2021)
+            - Service Cloud and WebChat Configuration
+            - Vlocity Digital Catalog implementation
+
+          - Foxtel Australia (May 2020 - December 2020)
+            - Service Cloud, KCS, Knowledge, and Community Cloud implementations
+            - Digital Engagement solutions including Messaging, Chat, and Einstein BOT
+
+      - layout: left
+        title: Greyc
+        sub_title: Degree Internship
+        caption: August 2019 - December 2019
+        description: |
+          - Research and development in Machine Learning and Graph Theory
+
+      - layout: left
+        title: Genomix4life srl
+        sub_title: Intern
+        caption: September 2016 - December 2016
+        description: |
+          - Technical internship supporting research operations
+
+  - title: Education
+    layout: list
+    content:
+      - layout: left
+        title: Politecnico di Milano
+        sub_title: Master's Degree in Digital Technologies for Innovation
+        caption: 2020 - 2022
+        description: |
+          - Specialized in Digital Business Models, Machine Learning, AI, and UX/UI Design
+          - Attained Salesforce Certifications and in-depth CRM mastery
+          - Honed leadership, time management, and communication skills
+
+      - layout: left
+        title: ENSICAEN - Ecole Nationale Supérieure d'Ingénieurs de Caen
+        sub_title: Machine Learning and Graph Theory
+        caption: 2019 - 2020
+        description: |
+          - Advanced studies in Machine Learning algorithms and Graph Theory applications
+
+      - layout: left
+        title: Università degli Studi di Salerno
+        sub_title: Master's in Computer Engineering
+        caption: 2017 - 2020
+        description: |
+          - Graduate-level computer engineering program with a focus on software development
+
+      - layout: left
+        title: Università degli Studi di Salerno
+        sub_title: Bachelor's in Computer Engineering
+        caption: 2014 - 2017
+        description: |
+          - Foundational computer engineering education
+
+  - title: Certifications
+    layout: list
+    content:
+      - layout: top
+        title: Salesforce Certifications
+        description: |
+          - Salesforce Certified Data Cloud Consultant
+          - Salesforce Certified AI Specialist
+          - Media Cloud Accredited Professional
+          - Salesforce Certified AI Associate
+          - Salesforce Certified Application Architect
+          - Salesforce Certified Data Architect
+          - Salesforce Certified Sharing and Visibility Architect
+          - Salesforce Certified Advanced Administrator
+          - Salesforce Certified Business Analyst
+          - Salesforce Certified Sales Cloud Consultant
+          - Communications Cloud Accredited Professional
+          - Salesforce Certified Associate
+          - Salesforce Certified Field Service Consultant
+          - Salesforce Certified Platform Developer II
+          - Salesforce Certified Experience Cloud Consultant
+          - Salesforce Certified JavaScript Developer I
+          - Salesforce Certified OmniStudio Consultant
+          - Vlocity Communications Order Management Developer I
+          - Vlocity Communications CPQ Developer I
+          - Salesforce Certified Platform App Builder
+          - Salesforce Certified Service Cloud Consultant
+          - Salesforce Certified Administrator
+          - Vlocity Platform Developer
+          - Salesforce Certified Platform Developer I
+          - Einstein Prediction Builder Accredited Professional
+          - Process Automation Accredited Professional
+
+
+      - layout: top
+        title: AWS Certifications
+        description: |
+          - AWS Certified Cloud Practitioner
+          - AWS Certified AI Practitioner
+          
+      - layout: top
+        title: Scrum and Agile Certifications
+        description: |
+          - Professional Scrum Developer™ I (PSD I)
+
+
+  - title: Skills & Expertise
+    layout: text
+    content: |
+      **Technical Skills**
+      - **Salesforce & Vlocity**: CPQ, EPC, Data Raptors, Flex Cards, Omniscripts, LWC, APEX
+      - **Development**: JavaScript, CSS, JSON, VS Code IDE
+      - **Integration**: Jenkins, GIT, Azure DevOps, AutoRabit, Mulesoft
+      - **Methodologies**: Agile, Technical Documentation
+
+      **Industry Knowledge**
+      - Specializing in Communications, Media, and Technology (CMT) industry solutions
+      - Knowledge of Vlocity Data packs (ESM, MSM)
+      - Exposure to TMForum APIs and Open API standards
+
+      **Languages**
+      - Italian (Native)
+      - English (Professional Working)
+      - French (Limited Working)
