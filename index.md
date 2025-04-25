@@ -7,7 +7,7 @@ title: About
 # Hello!
 
 {: .fs-5 .mb-3 }
-I am a computational social scientist interested in problems of organization, strategy, and decision-making. I am currently [Senior Lecturer in Creative Industries](https://www.business-school.ed.ac.uk/staff/michele-piazzai) at the University of Edinburgh.
+I am a Senior Cloud Engineer and Salesforce Industries Expert with over 5 years of experience in Digital Cloud Engineering. I currently work at [Deloitte Digital](https://www.deloittedigital.com), specializing in Salesforce and Vlocity solutions for the Communications, Media, and Technology (CMT) industry.
 
 {: .fs-5 .mb-4 }
-You can reach me at [michele.piazzai@ed.ac.uk](mailto:michele.piazzai@ed.ac.uk).
+You can reach me at [coluccigiovanni16@gmail.com](mailto:coluccigiovanni16@gmail.com) or connect with me on [LinkedIn](https://www.linkedin.com/in/coluccigiovanni16).
