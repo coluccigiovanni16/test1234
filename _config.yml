@@ -1,0 +1,35 @@
+title: ""
+description: ""
+baseurl: ""
+url: ""
+
+exclude:
+  - demo/
+  - cvless.gemspec
+  - LICENSE
+  - README.md
+  - screenshot.png
+
+plugins:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate-v2
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+sass:
+  style: compressed
+  sourcemap: never
+
+feed:
+  path: atom.xml
+
+autopages:
+  enabled: false
+
+pagination:
+  enabled: true
+  per_page: 1
+  sort_reverse: true
+  permalink: /:num/
+  title: ":title &middot; Page :num"
