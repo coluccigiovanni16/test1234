@@ -18,10 +18,27 @@ window.onload = function () {
             }
         ],
         onParticlesUpdate: function(ctx, particles) {
-            // Add some subtle pulsating effect to the particles
             particles.forEach(p => {
                 p.radius = 2.5 + Math.sin(Date.now() * 0.002 + p.x) * 1.5;
             });
+        },
+        // Hover Interactivity
+        interactivity: {
+            events: {
+                onHover: {
+                    enable: true,
+                    mode: 'bubble' // or 'repulse' if you prefer pushing them away
+                }
+            },
+            modes: {
+                bubble: {
+                    distance: 120,
+                    size: 8,
+                    duration: 2,
+                    opacity: 0.8,
+                    color: '#ffffff'
+                }
+            }
         }
     });
 };
