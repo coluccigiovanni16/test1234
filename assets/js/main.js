@@ -1,122 +1,94 @@
 window.onload = function () {
-  // ——— CONFIGURATION ———
-  const config = {
+  // ——— INITIALIZE PLUGIN ———
+  var instance = Particles.init({
     selector: ".background",
-
-    // COLORS & SHAPES
     color: ["#00A1E0", "#50BFE6", "#74c0fc", "#cfe2ff", "#ffffff"],
-    shape: ["circle", "triangle", "polygon", "star"], // multiple shapes
-    polygon: { nb_sides: 5 }, // for "polygon"
-
-    // PARTICLE COUNT & BEHAVIOR
-    maxParticles: 150,
-    speed: 0.3, // drift speed
-    sizeVariations: 5, // variations in size
-    particleRadius: 3, // base radius
-    minDistance: 100, // connection threshold
-
-    // LINE LINKS (connectParticles)
-    lineLinked: {
-      enable: true,
-      distance: 120,
-      color: "#ffffff",
-      opacity: 0.4,
-      width: 1,
-    },
-
-    // HIGH-DPI SUPPORT
-    retina_detect: true,
-
-    // RESPONSIVE TWEAKS
+    maxParticles: 120,
+    sizeVariations: 4,
+    speed: 0.4,
+    minDistance: 100,
+    connectParticles: true,
     responsive: [
-      {
-        breakpoint: 768,
-        options: {
-          maxParticles: 100,
-          minDistance: 80,
-        },
-      },
+      { breakpoint: 768, options: { maxParticles: 80, minDistance: 80 } },
     ],
-
-    // INTERACTIVITY MODES
-    interactivity: {
-      detect_on: "canvas",
-      events: {
-        onhover: {
-          enable: true,
-          mode: ["grab", "bubble"], // grab lines + bubble grow
-        },
-        onclick: {
-          enable: true,
-          mode: ["push", "repulse"], // spawn + repel
-        },
-        resize: true,
-      },
-      modes: {
-        // Grab: draw a line from mouse to particle
-        grab: {
-          distance: 150,
-          lineLinked: { opacity: 0.7 },
-        },
-        // Bubble: enlarge & brighten
-        bubble: {
-          distance: 120,
-          size: 8,
-          duration: 2,
-          opacity: 0.8,
-          color: "#ffffff",
-        },
-        // Push: add particles at click
-        push: {
-          particles_nb: 4,
-        },
-        // Repulse: push them away
-        repulse: {
-          distance: 200,
-          duration: 0.4,
-        },
-      },
-    },
-
-    // CUSTOM DYNAMICS
+    // hook into each frame
     onParticlesUpdate: function (ctx, particles) {
-      const time = Date.now();
-      const centerX = ctx.canvas.width / 2;
-      const centerY = ctx.canvas.height / 2;
+      var time = Date.now() * 0.002;
+      var w = ctx.canvas.width / 2;
+      var h = ctx.canvas.height / 2;
 
-      particles.forEach((p) => {
-        // 1) Pulsating radius
-        p.radius = 2.5 + Math.sin(time * 0.002 + p.x * 0.01) * 1.5;
+      particles.forEach(function (p) {
+        // pulsate
+        p.radius = 2 + Math.sin(time + p.x * 0.01) * 1.5;
+        // swirl toward center
+        var dx = p.x - w,
+          dy = p.y - h;
+        var ang = Math.atan2(dy, dx);
+        p.vx += Math.cos(ang) * 0.0007;
+        p.vy += Math.sin(ang) * 0.0007;
 
-        // 2) Subtle swirl toward center
-        const dx = p.x - centerX;
-        const dy = p.y - centerY;
-        const angle = Math.atan2(dy, dx);
-        p.vx += Math.cos(angle) * 0.0005;
-        p.vy += Math.sin(angle) * 0.0005;
+        // hover attraction
+        if (mouse.active) {
+          var rx = p.x - mouse.x,
+            ry = p.y - mouse.y;
+          var dist = Math.sqrt(rx * rx + ry * ry);
+          if (dist < hover.dist) {
+            var force = ((hover.dist - dist) / hover.dist) * hover.strength;
+            p.vx -= (rx / dist) * force;
+            p.vy -= (ry / dist) * force;
+            // bubble
+            p.radius = Math.min(hover.maxSize, p.radius + 0.1);
+          }
+        }
       });
     },
-  };
+  });
 
-  // initialize
-  Particles.init(config);
+  // ——— MOUSE / CLICK / KEYBOARD STATE ———
+  var canvas = document.querySelector(".background canvas");
+  var mouse = { x: 0, y: 0, active: false };
+  var hover = { dist: 120, strength: 0.05, maxSize: 8 };
 
-  // ——— EXTRA: KEYBOARD TOGGLE FOR COLOR THEME ———
-  window.addEventListener("keydown", (e) => {
-    if (e.key.toLowerCase() === "c") {
-      // flip the palette
-      config.color = config.color.reverse();
-      Particles.init(config);
+  // track hover
+  canvas.addEventListener("mousemove", function (e) {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+    mouse.active = true;
+  });
+  canvas.addEventListener("mouseout", function () {
+    mouse.active = false;
+  });
+
+  // on click: spawn + repulse
+  canvas.addEventListener("click", function (e) {
+    // spawn 6 new particles at click
+    for (var i = 0; i < 6; i++) {
+      var p = new Particle(instance.context, instance.options);
+      p.x = e.clientX;
+      p.y = e.clientY;
+      // give them a burst
+      var angle = Math.random() * Math.PI * 2;
+      var speed = 1 + Math.random() * 1.5;
+      p.vx = Math.cos(angle) * speed;
+      p.vy = Math.sin(angle) * speed;
+      instance.storage.push(p);
     }
   });
 
-  // ——— EXTRA: RIGHT-CLICK REMOVAL ———
-  const canvas = document.querySelector(".background canvas");
-  canvas.addEventListener("contextmenu", (e) => {
+  // right-click: eat particles
+  canvas.addEventListener("contextmenu", function (e) {
     e.preventDefault();
-    // remove a handful of particles on right-click
-    Particles.destroy(); // clear
-    config.maxParticles = Math.max(20, config.maxParticles - 20);
-    Particles.init(config); // restart with fewer
+    if (instance.storage.length > 20) {
+      instance.storage.splice(0, 20);
+    }
+  });
+
+  // 'c' to flip colors
+  window.addEventListener("keydown", function (e) {
+    if (e.key.toLowerCase() === "c") {
+      instance.options.color.reverse();
+      instance.destroy();
+      instance = Particles.init(instance.options);
+    }
   });
 };
